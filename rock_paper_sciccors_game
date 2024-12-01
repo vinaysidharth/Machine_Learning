@@ -1,0 +1,76 @@
+// Rock paper Sciccors
+
+#include<iostream>
+
+std::string choice();
+std::string computer_choice();
+std::string winner(std::string choice,std::string computer_choice);
+int main() {
+    //std::cout<<choice()<<" : Users Choice\n";
+    //std::cout<<computer_choice()<<" : Computers Choice\n";
+    std::string uc=choice();
+    std::string cc=computer_choice();
+    std::cout<<"User's Choice : "<<uc<<"\nComputer's Choice : "<<cc;
+    std::string result=winner(uc,cc);
+    std::cout<<"\nResult : "<<result;
+    return 0;
+}
+
+std::string choice() {
+    std::string choice;
+    std::cout<<"^^^^^^^^^^^^^^^^^^^^^^^^***************^^^^^^^^^^^^^^^^^^^^^\n"
+               "1.Rock : 'r' \n"
+               "2.paper : 'p' \n"
+               "3.Scissor : 's' \n"
+               "choose from the list above : ";
+    std::cin>>choice;
+    return choice;
+}
+
+std::string computer_choice() {
+    srand(time(0));
+    std::string cmch;
+    int rn=rand() %3+1;
+    if (rn==1)
+        {
+        cmch="r";
+        }
+    else if(rn==2) {
+        cmch="s";
+    }
+    else {
+        cmch="p";
+    }
+
+    return cmch;
+
+}
+
+std::string winner(std::string choice,std::string computer_choice) {
+    std::string a="User Wins";
+    std::string b="Computer Wins";
+    std::string c="Its a Tie";
+    if(choice ==computer_choice)
+        {
+        return c;
+    }
+    else if(choice =="r" && computer_choice=="s") {
+        return a;
+    }
+    else if(choice =="p" && computer_choice=="s") {
+        return b;
+    }
+    else if(choice =="s" && computer_choice=="r") {
+        return b;
+    }
+    else if(choice =="p" && computer_choice=="r") {
+        return a;
+    }
+    else if(choice =="r" && computer_choice=="p") {
+        return b;
+    }
+    else if(choice =="s" && computer_choice=="p") {
+        return a;
+    }
+
+}
