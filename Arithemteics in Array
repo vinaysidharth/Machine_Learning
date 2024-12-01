@@ -1,0 +1,17 @@
+#include<iostream>
+double getTotal(int nums[],double size);
+int main() {
+    int nums[]={1,2,3};
+    double size=sizeof(nums)/sizeof(int);
+    double total=getTotal(nums,size);
+    std::cout<<total;
+    return 0;
+}
+double getTotal(int nums[],double size) {
+    double temp2=0;
+    for (int i=0;i<size;i++) {
+        temp2=temp2+nums[i];
+    }
+        return temp2;
+
+}
