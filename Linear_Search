@@ -1,0 +1,32 @@
+//Array linear Search
+#include<iostream>
+int searcher(std::string food[],int size,std::string element);
+int main() {
+
+    //int mylist[]={1,2,3,4,5,6,7,8,9,10};
+    std::string food[]={"pizza","hotdog","pasta","sandwich","baguette","cake","icecream"};
+    int size=sizeof(food)/sizeof(food[0]);
+    std::string element="pizza";
+
+    //int searcher(mylist,size,element);
+
+    int ind=searcher(food,size,element);
+    if(ind==1) {
+        std::cout<<"The Element is in "<<ind<<" index";
+    }
+    else{
+        std::cout<<"Element not found";
+    }
+    return 0;
+}
+
+int searcher(std::string food[],int size,std::string element) {
+    for(int i=0;i<size;i++) {
+
+        if (food[i]==element){
+
+            return i;
+        }
+    }
+    return -1;
+}
